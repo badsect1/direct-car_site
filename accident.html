@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>사고대처안내 - 다이렉트 자동차보험</title>
+    <meta name="description" content="교통사고 발생 시 당황하지 마세요. 단계별 대처 방법, 긴급 연락처, 보험 처리 절차를 안내합니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="교통사고 대처안내 | 다이렉트자동차보험파트너">
+    <meta property="og:description" content="교통사고 발생 시 당황하지 마세요. 단계별 대처 방법, 긴급 연락처, 보험 처리 절차를 안내합니다.">
+    <meta property="og:url" content="https://direct-car.co.kr/accident.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Pretendard', sans-serif; 
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0.9375rem;
+            top: 2.5rem;
+            bottom: -2rem;
+            width: 2px;
+            background: linear-gradient(to bottom, #3b82f6, #e2e8f0);
+        }
+        .timeline-item:last-child::before {
+            display: none;
+        }
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 1; }
+            80%, 100% { transform: scale(1.4); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-600 selection:text-white">
+
+    <!-- Top Navigation -->
+    <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 sm:h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-lg sm:text-xl shadow-lg shadow-blue-600/30">D</div>
+                        <span class="font-bold text-base sm:text-xl tracking-tight text-gray-900">다이렉트자동차보험파트너</span>
+                    </a>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-8">
+                    <a href="guide.html" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">가입안내</a>
+                    <a href="accident.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1 transition-colors">사고대처안내</a>
+                    <a href="faq.html" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">FAQ</a>
+                    <a href="/posts/" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">보험정보</a>
+                </div>
+                <div class="sm:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-blue-600 p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="sm:hidden hidden bg-white border-t border-gray-100 px-4 py-3 space-y-2">
+            <a href="guide.html" class="block text-gray-600 hover:text-blue-600 font-medium py-2">가입안내</a>
+            <a href="accident.html" class="block text-blue-600 font-semibold py-2">사고대처안내</a>
+            <a href="faq.html" class="block text-gray-600 hover:text-blue-600 font-medium py-2">FAQ</a>
+            <a href="/posts/" class="block text-gray-600 hover:text-blue-600 font-medium py-2">보험정보</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Page Hero -->
+        <div class="relative bg-gradient-to-br from-red-700 via-red-600 to-orange-600 py-12 sm:py-20 overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-10 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
+                <div class="absolute bottom-10 right-10 w-96 h-96 bg-red-300 rounded-full blur-3xl"></div>
+            </div>
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="inline-flex items-center px-3 py-1 sm:px-4 sm:py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-white/20 text-white backdrop-blur-sm tracking-wide mb-4 sm:mb-6">
+                    EMERGENCY GUIDE
+                </p>
+                <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-3 sm:mb-4">교통사고 대처안내</h1>
+                <p class="text-sm sm:text-lg text-red-100 max-w-2xl mx-auto font-light">사고 현장에서 당황하지 마세요.<br>골든타임을 지키는 체계적인 대처 방법을 안내해 드립니다.</p>
+            </div>
+        </div>
+
+        <!-- 긴급 연락처 Section -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20">
+            <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-10">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="relative">
+                        <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        </div>
+                        <div class="absolute inset-0 w-10 h-10 rounded-full bg-red-500 pulse-ring"></div>
+                    </div>
+                    <h2 class="text-2xl font-extrabold text-gray-900">긴급 연락처</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-red-50 rounded-2xl p-5 border border-red-100 text-center">
+                        <p class="text-sm text-red-600 font-semibold mb-1">경찰 신고</p>
+                        <p class="text-3xl font-extrabold text-red-700">112</p>
+                    </div>
+                    <div class="bg-orange-50 rounded-2xl p-5 border border-orange-100 text-center">
+                        <p class="text-sm text-orange-600 font-semibold mb-1">구급 / 소방</p>
+                        <p class="text-3xl font-extrabold text-orange-700">119</p>
+                    </div>
+                    <div class="bg-blue-50 rounded-2xl p-5 border border-blue-100 text-center">
+                        <p class="text-sm text-blue-600 font-semibold mb-1">고속도로 사고</p>
+                        <p class="text-3xl font-extrabold text-blue-700">1588-2504</p>
+                    </div>
+                    <div class="bg-emerald-50 rounded-2xl p-5 border border-emerald-100 text-center">
+                        <p class="text-sm text-emerald-600 font-semibold mb-1">손해보험 상담</p>
+                        <p class="text-3xl font-extrabold text-emerald-700">1566-8114</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 사고 발생 시 단계별 대처 -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 mb-4">사고 발생 시 단계별 대처 방법</h2>
+                <p class="text-gray-500 text-lg">아래 순서를 따라 침착하게 대처하세요.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-10">
+                <!-- Step 1 -->
+                <div class="timeline-item">
+                    <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-gradient-to-br from-red-500 to-red-600 text-white flex items-center justify-center text-sm font-bold shadow-lg shadow-red-500/30 z-10">1</div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                            <span class="text-red-500">🚨</span> 안전 확보 및 2차 사고 예방
+                        </h3>
+                        <ul class="space-y-2 text-gray-600 text-sm">
+                            <li class="flex items-start gap-2">
+                                <span class="text-red-500 mt-0.5">•</span>
+                                차량을 안전한 장소(갓길 등)로 이동시킵니다.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-red-500 mt-0.5">•</span>
+                                비상등(경고등)을 켜고, 삼각대를 설치합니다.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-red-500 mt-0.5">•</span>
+                                야간이나 시야가 좋지 않은 곳에서는 반드시 안전조끼를 착용합니다.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-red-500 mt-0.5">•</span>
+                                <strong>고속도로 사고 시:</strong> 즉시 차량에서 내려 가드레일 바깥으로 대피합니다.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="timeline-item">
+                    <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 text-white flex items-center justify-center text-sm font-bold shadow-lg shadow-orange-500/30 z-10">2</div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                            <span class="text-orange-500">🏥</span> 부상자 구호 및 신고
+                        </h3>
+                        <ul class="space-y-2 text-gray-600 text-sm">
+                            <li class="flex items-start gap-2">
+                                <span class="text-orange-500 mt-0.5">•</span>
+                                부상자가 있으면 <strong>119</strong>에 즉시 구급 요청을 합니다.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-orange-500 mt-0.5">•</span>
+                                중상자는 함부로 움직이지 마시고 구급대원이 올 때까지 기다립니다.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-orange-500 mt-0.5">•</span>
+                                <strong>경찰(112)</strong>에 사고 발생 사실을 신고합니다.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-orange-500 mt-0.5">•</span>
+                                경미한 접촉사고라도 반드시 경찰에 신고하여 사고 사실을 확인받으세요.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="timeline-item">
+                    <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-white flex items-center justify-center text-sm font-bold shadow-lg shadow-blue-500/30 z-10">3</div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                            <span class="text-blue-500">📸</span> 사고 현장 증거 확보
+                        </h3>
+                        <ul class="space-y-2 text-gray-600 text-sm">
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-500 mt-0.5">•</span>
+                                사고 현장 전체 모습, 차량 파손 부위, 도로 상황을 <strong>사진·동영상</strong>으로 촬영합니다.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-500 mt-0.5">•</span>
+                                상대 차량의 <strong>번호판, 차종, 색상</strong>을 기록합니다.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-500 mt-0.5">•</span>
+                                상대 운전자의 <strong>이름, 연락처, 보험 정보</strong>를 교환합니다.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-500 mt-0.5">•</span>
+                                목격자가 있다면 연락처를 확보합니다.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-500 mt-0.5">•</span>
+                                블랙박스 영상을 즉시 저장(잠금)합니다.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="timeline-item">
+                    <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-600 text-white flex items-center justify-center text-sm font-bold shadow-lg shadow-emerald-500/30 z-10">4</div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                            <span class="text-emerald-500">📞</span> 보험회사 사고 접수
+                        </h3>
+                        <ul class="space-y-2 text-gray-600 text-sm">
+                            <li class="flex items-start gap-2">
+                                <span class="text-emerald-500 mt-0.5">•</span>
+                                가입한 보험회사의 <strong>콜센터</strong>에 사고 접수를 합니다.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-emerald-500 mt-0.5">•</span>
+                                사고 일시, 장소, 상황, 피해 정도 등을 상세히 알립니다.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-emerald-500 mt-0.5">•</span>
+                                보험회사에서 <strong>사고 담당자</strong>가 배정되어 안내를 시작합니다.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-emerald-500 mt-0.5">•</span>
+                                긴급출동 서비스(견인, 잠금해제 등)가 필요하면 함께 요청합니다.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="timeline-item">
+                    <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-violet-600 text-white flex items-center justify-center text-sm font-bold shadow-lg shadow-violet-500/30 z-10">5</div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                            <span class="text-violet-500">🔧</span> 차량 수리 및 보상 처리
+                        </h3>
+                        <ul class="space-y-2 text-gray-600 text-sm">
+                            <li class="flex items-start gap-2">
+                                <span class="text-violet-500 mt-0.5">•</span>
+                                보험회사가 지정하는 협력 정비소 또는 원하는 정비소에서 수리합니다.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-violet-500 mt-0.5">•</span>
+                                치료비, 수리비 등 보상 내역을 꼼꼼히 확인합니다.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-violet-500 mt-0.5">•</span>
+                                보상 금액에 이의가 있을 경우 손해사정사에게 문의합니다.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 상황별 대처 가이드 -->
+        <div class="bg-white py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-extrabold text-gray-900 mb-4">상황별 대처 가이드</h2>
+                    <p class="text-gray-500 text-lg">다양한 사고 상황에 맞는 대처법을 확인하세요.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- 추돌사고 -->
+                    <div class="bg-gray-50 rounded-3xl p-8 border border-gray-100 card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-red-100 text-red-600 flex items-center justify-center mb-6 text-2xl">
+                            🚗
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">추돌 사고</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">뒤에서 추돌당한 경우, 과실은 추돌한 차량에 있습니다. 목·허리 등 경추 부상이 많으므로 경미하더라도 반드시 병원 진료를 받으세요.</p>
+                        <div class="bg-red-50 rounded-xl p-3 text-xs text-red-700 font-medium">
+                            💡 경추 손상은 시간이 지나 증상이 나타날 수 있어 즉시 진단받는 것이 중요합니다.
+                        </div>
+                    </div>
+
+                    <!-- 접촉사고 -->
+                    <div class="bg-gray-50 rounded-3xl p-8 border border-gray-100 card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mb-6 text-2xl">
+                            ⚡
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">접촉 사고 (경미)</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">주차장이나 좁은 도로에서 발생하는 경미한 접촉사고. 사소하더라도 상대방과 연락처를 교환하고, 사고 접수를 하세요.</p>
+                        <div class="bg-amber-50 rounded-xl p-3 text-xs text-amber-700 font-medium">
+                            💡 합의 없이 현장을 떠나면 뺑소니로 처리될 수 있습니다.
+                        </div>
+                    </div>
+
+                    <!-- 자차 단독사고 -->
+                    <div class="bg-gray-50 rounded-3xl p-8 border border-gray-100 card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center mb-6 text-2xl">
+                            🛞
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">자차 단독 사고</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">가드레일, 전봇대 등에 단독으로 충돌한 경우. 자기차량손해 특약에 가입되어 있어야 수리비를 보상받을 수 있습니다.</p>
+                        <div class="bg-blue-50 rounded-xl p-3 text-xs text-blue-700 font-medium">
+                            💡 시설물 파손 시 관할 관청에 별도 신고가 필요합니다.
+                        </div>
+                    </div>
+
+                    <!-- 대인사고 -->
+                    <div class="bg-gray-50 rounded-3xl p-8 border border-gray-100 card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-6 text-2xl">
+                            🚶
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">대인 사고 (보행자)</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">보행자와의 사고는 운전자에게 높은 과실이 부여됩니다. 부상자 구호를 최우선으로 하고, 즉시 119와 112에 신고하세요.</p>
+                        <div class="bg-emerald-50 rounded-xl p-3 text-xs text-emerald-700 font-medium">
+                            💡 구호 조치를 하지 않으면 형사처벌 대상이 됩니다.
+                        </div>
+                    </div>
+
+                    <!-- 음주/무면허 상대 -->
+                    <div class="bg-gray-50 rounded-3xl p-8 border border-gray-100 card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-violet-100 text-violet-600 flex items-center justify-center mb-6 text-2xl">
+                            🚫
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">음주/무면허 차량 사고</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">상대방이 음주 또는 무면허인 경우, 경찰에 반드시 신고하고 음주측정 결과를 확보하세요. 블랙박스 영상이 핵심 증거입니다.</p>
+                        <div class="bg-violet-50 rounded-xl p-3 text-xs text-violet-700 font-medium">
+                            💡 상대방이 무보험인 경우 무보험차 상해담보로 보상받을 수 있습니다.
+                        </div>
+                    </div>
+
+                    <!-- 침수/자연재해 -->
+                    <div class="bg-gray-50 rounded-3xl p-8 border border-gray-100 card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-cyan-100 text-cyan-600 flex items-center justify-center mb-6 text-2xl">
+                            🌊
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">침수 / 자연재해</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">집중호우, 태풍 등으로 차량이 침수된 경우. 자기차량손해 특약이 있어야 보상됩니다. 시동을 걸지 마세요.</p>
+                        <div class="bg-cyan-50 rounded-xl p-3 text-xs text-cyan-700 font-medium">
+                            💡 침수 후 시동을 걸면 엔진 손상이 악화되어 보상이 제한될 수 있습니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 보험사 연락처 -->
+        <div class="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-extrabold text-white mb-4">제휴 보험사 사고접수 연락처</h2>
+                    <p class="text-blue-200 text-lg font-light">24시간 사고접수가 가능합니다.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 text-center card-hover">
+                        <p class="text-white font-bold text-lg mb-2">DB손해보험</p>
+                        <p class="text-blue-300 text-2xl font-extrabold">1588-0100</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 text-center card-hover">
+                        <p class="text-white font-bold text-lg mb-2">현대해상</p>
+                        <p class="text-blue-300 text-2xl font-extrabold">1588-5656</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 text-center card-hover">
+                        <p class="text-white font-bold text-lg mb-2">KB손해보험</p>
+                        <p class="text-blue-300 text-2xl font-extrabold">1544-0114</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 text-center card-hover">
+                        <p class="text-white font-bold text-lg mb-2">한화손해보험</p>
+                        <p class="text-blue-300 text-2xl font-extrabold">1566-8000</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 text-center card-hover">
+                        <p class="text-white font-bold text-lg mb-2">흥국화재보험</p>
+                        <p class="text-blue-300 text-2xl font-extrabold">1688-1688</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 text-center card-hover">
+                        <p class="text-white font-bold text-lg mb-2">AXA손해보험</p>
+                        <p class="text-blue-300 text-2xl font-extrabold">1566-1566</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 text-center card-hover">
+                        <p class="text-white font-bold text-lg mb-2">하나손해보험</p>
+                        <p class="text-blue-300 text-2xl font-extrabold">1566-3000</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 text-center card-hover">
+                        <p class="text-white font-bold text-lg mb-2">교통사고 상담</p>
+                        <p class="text-emerald-300 text-2xl font-extrabold">1588-0049</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 꼭 기억하세요 Section -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 mb-4">꼭 기억하세요!</h2>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="flex items-start gap-4 p-6 bg-red-50 rounded-2xl border border-red-100">
+                    <div class="w-8 h-8 rounded-full bg-red-500 text-white flex items-center justify-center flex-shrink-0 mt-0.5 text-lg">✕</div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-1">절대 하면 안 되는 것</h4>
+                        <p class="text-sm text-gray-600">사고 후 상대방과 현장에서 합의하고 그냥 떠나지 마세요. 나중에 분쟁이 생기면 증거 없이 불리해질 수 있습니다. 반드시 경찰 신고 후 사고확인서를 발급받으세요.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-6 bg-amber-50 rounded-2xl border border-amber-100">
+                    <div class="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center flex-shrink-0 mt-0.5 text-lg">!</div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-1">사고 접수 기한</h4>
+                        <p class="text-sm text-gray-600">보험사에 사고 접수는 가능한 빨리 하세요. 사고일로부터 시간이 경과할수록 보상 절차가 복잡해질 수 있습니다.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-6 bg-emerald-50 rounded-2xl border border-emerald-100">
+                    <div class="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center flex-shrink-0 mt-0.5 text-lg">✓</div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-1">블랙박스는 필수</h4>
+                        <p class="text-sm text-gray-600">블랙박스는 사고 시 가장 강력한 증거입니다. 사고 후 즉시 영상을 저장(잠금)하여 덮어쓰기를 방지하세요.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Banner -->
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+            <a href="https://globalapi.adalba.co.kr/0sL35NuWBJKH" class="group block">
+                <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl shadow-blue-900/20 card-hover relative flex items-center h-auto py-8 sm:py-0 sm:h-48 md:h-56">
+                    <div class="absolute inset-0 bg-blue-900/20 group-hover:bg-blue-800/10 transition-colors duration-500"></div>
+                    <div class="relative z-10 px-6 sm:px-8 md:px-16 flex flex-col sm:flex-row items-center sm:items-center justify-between w-full gap-4 sm:gap-0 text-center sm:text-left">
+                        <div>
+                            <h2 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-white mb-1 sm:mb-3">만약을 위한 현명한 준비</h2>
+                            <p class="text-blue-100 text-sm sm:text-base md:text-lg font-medium opacity-90">지금 바로 내 보험료를 확인해 보세요</p>
+                        </div>
+                        <div class="mt-2 sm:mt-0">
+                            <span class="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold text-blue-700 bg-white rounded-full shadow-lg shadow-white/20 group-hover:scale-105 group-hover:bg-gray-50 transition-transform duration-300">
+                                보험료 확인하기
+                                <svg class="ml-2 w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-light">
+                <div class="text-center md:text-left space-y-1">
+                    <p><span class="text-gray-300 font-medium">다이렉트자동차보험파트너</span> <span class="mx-2">|</span> 대표자 : 김승규 <span class="mx-2">|</span> 사업자등록번호 : 265-19-00725</p>
+                    <p>서울특별시 중구 퇴계로34길 16, 5층 2호(필동1가)</p>
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors">이용약관</a>
+                    <a href="#" class="text-white hover:text-blue-400 font-medium transition-colors">개인정보처리방침</a>
+                </div>
+                <div class="text-gray-500">
+                    <p>Copyright ⓒ DirectCarPlus. All rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+    </script>
+</body>
+</html>

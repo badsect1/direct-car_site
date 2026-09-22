@@ -1,0 +1,27 @@
+{
+  "siteName": "다이렉트 자동차보험료 비교 견적 | 다이렉트자동차보험파트너",
+  "brandShort": "다이렉트자동차보험파트너",
+  "siteUrl": "https://direct-car.co.kr",
+  "postsHubUrl": "https://direct-car.co.kr/posts/",
+  "ctaUrl": "https://globalapi.adalba.co.kr/0sL35NuWBJKH",
+  "ctaButtonText": "내 차 다이렉트 보험료 1분 최저가 비교견적 확인하기",
+  "ctaSecondaryText": "국내 주요 7대 손해보험사 보험료 한 번에 조회",
+  "partnerInsurers": [
+    "현대해상 하이카 다이렉트",
+    "DB손해보험 다이렉트",
+    "KB손해보험 다이렉트",
+    "AXA손해보험 다이렉트",
+    "한화손해보험 다이렉트",
+    "흥국화재 이유다이렉트",
+    "하나손해보험 다이렉트"
+  ],
+  "disclaimer": "※ 본 광고는 소정의 광고비(원고료 등)를 지급받아 작성하였습니다. 보험계약 체결 전 반드시 상품설명서 및 약관을 확인하시기 바랍니다. 금융소비자는 해당 상품 또는 서비스에 대하여 설명을 받을 권리가 있습니다. 예금자보호법에 따라 예금보험공사가 보호하되, 보호한도는 1인당 최고 5천만원(해당 상품별 기준)입니다.",
+  "categories": [
+    { "id": "all", "name": "전체보기" },
+    { "id": "discount", "name": "보험료 절약 & 특약" },
+    { "id": "coverage", "name": "필수 보장 & 담보 설계" },
+    { "id": "age-vehicle", "name": "연령별 · 차종별 가이드" },
+    { "id": "renewal", "name": "갱신 · 환급 · 사고처리" },
+    { "id": "compare", "name": "보험사별 비교 & 분석" }
+  ]
+}

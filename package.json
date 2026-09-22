@@ -1,0 +1,22 @@
+{
+  "name": "direct-car-seo-geo-system",
+  "version": "1.0.0",
+  "description": "다이렉트자동차보험파트너 SEO 및 GEO 최적화 자동 포스팅 & 호스팅어 SFTP 자동 배포 시스템",
+  "type": "module",
+  "scripts": {
+    "post": "node scripts/generate_post.mjs",
+    "deploy": "python -u scripts/upload_to_hostinger.py",
+    "post:deploy": "node scripts/generate_post.mjs && python -u scripts/upload_to_hostinger.py"
+  },
+  "keywords": [
+    "car-insurance",
+    "direct-insurance",
+    "seo",
+    "geo",
+    "hostinger",
+    "gemini",
+    "auto-posting"
+  ],
+  "author": "다이렉트자동차보험파트너",
+  "license": "ISC"
+}

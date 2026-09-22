@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>다이렉트 자동차보험료 비교 견적</title>
+    <meta name="description" content="7개 주요 보험사의 다이렉트 자동차보험료를 한눈에 비교하세요. 설계사 없이 직접 가입하여 평균 15% 할인받고, 나에게 딱 맞는 보험을 합리적으로 선택할 수 있습니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="다이렉트 자동차보험료 비교 견적 | 다이렉트자동차보험파트너">
+    <meta property="og:description" content="7개 주요 보험사의 다이렉트 자동차보험료를 한눈에 비교하세요. 설계사 없이 직접 가입하여 평균 15% 할인받고, 나에게 딱 맞는 보험을 합리적으로 선택할 수 있습니다.">
+    <meta property="og:url" content="https://direct-car.co.kr/">
+    <!-- Tailwind CSS for rapid and beautiful styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Pretendard', sans-serif; 
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .hero-section {
+            background-image: url('https://img.adinsu.com/adinsu/directcarinsu/pc/img/bg.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .cta-banner {
+            background-color: #0b3f88; /* fallback */
+            background-image: linear-gradient(135deg, #0b3f88 0%, #1e40af 100%);
+        }
+        /* Smooth hover transitions */
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-600 selection:text-white">
+
+    <!-- Top Navigation -->
+    <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16 sm:h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                        <!-- Simplified Logo -->
+                        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-lg sm:text-xl shadow-lg shadow-blue-600/30">D</div>
+                        <span class="font-bold text-base sm:text-xl tracking-tight text-gray-900">다이렉트자동차보험파트너</span>
+                    </a>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-8">
+                    <a href="guide.html" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">가입안내</a>
+                    <a href="accident.html" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">사고대처안내</a>
+                    <a href="faq.html" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">FAQ</a>
+                    <a href="/posts/" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">보험정보</a>
+                </div>
+                <div class="sm:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-blue-600 p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="sm:hidden hidden bg-white border-t border-gray-100 px-4 py-3 space-y-2">
+            <a href="guide.html" class="block text-gray-600 hover:text-blue-600 font-medium py-2">가입안내</a>
+            <a href="accident.html" class="block text-gray-600 hover:text-blue-600 font-medium py-2">사고대처안내</a>
+            <a href="faq.html" class="block text-gray-600 hover:text-blue-600 font-medium py-2">FAQ</a>
+            <a href="/posts/" class="block text-gray-600 hover:text-blue-600 font-medium py-2">보험정보</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Premium Image -->
+    <main>
+        <div class="hero-section relative h-[400px] sm:h-[500px] lg:h-[600px] flex items-center">
+            <!-- Gradient Overlay for better text readability -->
+            <div class="absolute inset-0 bg-gradient-to-r from-gray-900/85 via-gray-900/60 to-gray-900/30 sm:to-transparent"></div>
+            
+            <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full">
+                <div class="max-w-2xl text-white">
+                    <p class="inline-flex items-center px-3 py-1 sm:px-4 sm:py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-blue-600/90 backdrop-blur-sm tracking-wide uppercase mb-4 sm:mb-6 shadow-lg shadow-blue-900/20">
+                        스마트한 운전자의 선택
+                    </p>
+                    <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.25] sm:leading-[1.15] mb-4 sm:mb-6 drop-shadow-md">
+                        모든 자동차보험<br/>
+                        <span class="text-blue-400">한 곳에서 확인하고</span><br/>
+                        합리적으로 알아보세요.
+                    </h1>
+                    <p class="text-sm sm:text-lg lg:text-xl text-gray-200 mb-6 sm:mb-10 max-w-xl font-light leading-relaxed">
+                        복잡한 절차 없이, 주요 7개 보험사의 상품을 확인하실 수 있습니다. 오직 당신의 안전과 혜택에만 집중합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- The "Call to Action" Banner -->
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 sm:-mt-24 relative z-20">
+            <a href="https://globalapi.adalba.co.kr/0sL35NuWBJKH" class="group block">
+                <div class="cta-banner rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl shadow-blue-900/20 card-hover relative flex items-center h-auto py-8 sm:py-0 sm:h-48 md:h-56">
+                    <div class="absolute inset-0 bg-blue-900/60 group-hover:bg-blue-800/50 transition-colors duration-500"></div>
+                    <div class="relative z-10 px-6 sm:px-8 md:px-16 flex flex-col sm:flex-row items-center sm:items-center justify-between w-full gap-4 sm:gap-0 text-center sm:text-left">
+                        <div>
+                            <h2 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-white mb-1 sm:mb-3">자동차보험료 알아보기</h2>
+                            <p class="text-blue-100 text-sm sm:text-base md:text-lg font-medium opacity-90">빠른 보험료 확인 시스템</p>
+                        </div>
+                        <div class="mt-2 sm:mt-0">
+                            <span class="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold text-blue-700 bg-white rounded-full shadow-lg shadow-white/20 group-hover:scale-105 group-hover:bg-gray-50 transition-transform duration-300">
+                                지금 확인하기
+                                <svg class="ml-2 w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Features / Guides Grid -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
+            <div class="text-center mb-10 sm:mb-16">
+                <h3 class="text-xl sm:text-3xl font-extrabold text-gray-900">다이렉트자동차보험파트너와 함께하는<br class="sm:hidden"> 스마트한 운전 생활</h3>
+                <p class="mt-3 sm:mt-4 text-sm sm:text-lg text-gray-500">고객님의 안전한 주행을 위해 필요한 모든 정보를 제공합니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-10">
+                <!-- Card 1 -->
+                <a href="guide.html" class="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-sm border border-gray-100 card-hover text-center relative overflow-hidden group block">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-blue-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                    <div class="w-16 h-16 sm:w-24 sm:h-24 mx-auto mb-5 sm:mb-8 flex items-center justify-center">
+                        <img src="http://img.adinsu.co.kr/adinsu/directcarinsu/pc/img/guide_icon01.png" alt="가입 가이드" class="w-full h-full object-contain">
+                    </div>
+                    <h4 class="text-lg sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-4">현명한 가입 가이드</h4>
+                    <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
+                        필요 없는 특약은 빼고, 내게 꼭 맞는 혜택만 챙기세요. 다이렉트 가입 전 필수 체크리스트를 투명하게 공개합니다.
+                    </p>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="accident.html" class="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-sm border border-gray-100 card-hover text-center relative overflow-hidden group block">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-blue-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                    <div class="w-16 h-16 sm:w-24 sm:h-24 mx-auto mb-5 sm:mb-8 flex items-center justify-center">
+                        <img src="http://img.adinsu.co.kr/adinsu/directcarinsu/pc/img/guide_icon02.png" alt="사고 대처 방법" class="w-full h-full object-contain">
+                    </div>
+                    <h4 class="text-lg sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-4">긴급 사고 대처 매뉴얼</h4>
+                    <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
+                        당황스러운 교통사고 현장, 골든타임을 놓치지 마세요. 2차 사고 예방부터 현장 보존, 보험사 접수까지 한곳에 정리했습니다.
+                    </p>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="faq.html" class="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-sm border border-gray-100 card-hover text-center relative overflow-hidden group block">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-blue-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                    <div class="w-16 h-16 sm:w-24 sm:h-24 mx-auto mb-5 sm:mb-8 flex items-center justify-center">
+                        <img src="http://img.adinsu.co.kr/adinsu/directcarinsu/pc/img/guide_icon03.png" alt="자주 묻는 질문" class="w-full h-full object-contain">
+                    </div>
+                    <h4 class="text-lg sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-4">고객 만족 FAQ</h4>
+                    <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
+                        보상 범위, 혜택 할증 등급, 긴급출동 서비스 등 가입자분들이 가장 궁금해하는 핵심 질문들에 대한 명확한 해답을 제공합니다.
+                    </p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Partners Section -->
+        <div class="bg-gray-50/50 py-12 sm:py-20 border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="text-xs sm:text-sm font-semibold tracking-widest text-gray-400 uppercase mb-6 sm:mb-8">신뢰할 수 있는 국내 7대 대표 손해보험사 제휴</p>
+                <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4">
+                    <div class="flex flex-col items-center justify-center p-3 sm:p-4 bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <img src="https://img.adinsu.com/adinsu/directcarinsu/pc/img/logo_db.png" alt="DB손해보험" class="h-7 sm:h-10 object-contain opacity-80 hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-3 sm:p-4 bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <img src="https://img.adinsu.com/adinsu/directcarinsu/pc/img/logo_hyun.png" alt="현대해상" class="h-7 sm:h-10 object-contain opacity-80 hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-3 sm:p-4 bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <img src="https://img.adinsu.com/adinsu/directcarinsu/pc/img/logo_kb.png" alt="KB손해보험" class="h-7 sm:h-10 object-contain opacity-80 hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-3 sm:p-4 bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <img src="https://img.adinsu.com/adinsu/directcarinsu/pc/img/logo_hk.png" alt="흥국화재보험" class="h-7 sm:h-10 object-contain opacity-80 hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-3 sm:p-4 bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <img src="https://img.adinsu.com/adinsu/directcarinsu/pc/img/logo_hh.png" alt="한화손해보험" class="h-7 sm:h-10 object-contain opacity-80 hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-3 sm:p-4 bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <img src="https://img.adinsu.com/adinsu/directcarinsu/pc/img/logo_axa.png" alt="AXA손해보험" class="h-7 sm:h-10 object-contain opacity-80 hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-3 sm:p-4 bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <img src="https://img.adinsu.com/adinsu/directcarinsu/pc/img/logo_hana.png" alt="하나손해보험" class="h-7 sm:h-10 object-contain opacity-80 hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-10 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-8 sm:mb-12">
+                <div class="space-y-2 sm:space-y-3 text-xs sm:text-sm font-light text-gray-400 max-w-5xl">
+                    <p>※ 해당 광고물은 한화손보, 흥국화재, 현대해상, KB손보, DB손보, AXA손보, 하나손보의 공동 광고물입니다.</p>
+                    <p>※ 해당 보험사는 관련 상품에 대해 충분히 설명할 의무가 있으며, 가입자는 가입에 앞서 이에 대한 충분한 설명을 받으시기 바랍니다.</p>
+                    <p>※ 보험계약 체결 전 상품설명서 및 약관을 읽어보시기 바랍니다.</p>
+                    <p>※ 보험계약자가 기존에 체결했던 보험계약을 해지하고 다른 보험계약을 체결하는 경우에는 보험 인수가 거절되거나 보험료가 인상되거나 보장내용이 달라질 수 있습니다.</p>
+                    <p>※ 지급 한도, 면책사항 등에 따라 보험금 지급이 제한될 수 있습니다.</p>
+                    <p>※ 이 보험계약은 예금자보호법에 따라 해약환급금(또는 만기 시 보험금)에 기타지급금을 합한 금액이 1인당 “1억원까지”(본 보험회사의 여타 보호 상품과 합산) 보호됩니다. 이와 별도로 본 보험회사 보호상품의 사고 보험금을 합산한 금액이 1인당 “1억원까지” 보호됩니다. 다만, 보험계약자 및 보험료납부자가 법인인 보험계약의 경우에는 보호되지 않습니다.</p>
+                    <p>※ 전화상담을 통해 자동차보험료 확인 및 자동차보험 가입이 가능합니다./p>
+                    <p>※ 본 광고는 광고심의기준을 준수하였으며, 유효기간은 심의일로부터 1년 입니다.</p>
+                    <p>하나손해보험 준법감시인 확인필 202604-071 (2026.04.15~2027.04.14)/p>
+                    <p>한화손해보험 확인필-제2026-자동차TM지원-기타(광고)02030C-전사(2026.04.16~2027.04.15)/p>
+                    <p>현대해상 준법감시인 심의필 제20261241호(2026.05.12~2027.05.11)/p>
+                    <p>AXA손해보험 검-260414-마케팅팀-166(2026.04.14~2027.04.13)/p>
+                    <p>DB손해보험 준법감시인 확인필_제2026-12467호(2026.04.15~2027.04.14)/p>
+                    <p>KB손해보험 준법감시인 심의필 제2026-1021호(2026.04.23~2027.04.22)p>
+                    <p>흥국화재보험 준법감시인 확인필T-260420-04-002 (2026.04.20~2027.04.19)/p>
+
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-light">
+                <div class="text-center md:text-left space-y-1">
+                    <p><span class="text-gray-300 font-medium">다이렉트자동차보험파트너</span> <span class="mx-2">|</span> 대표자 : 김승규 <span class="mx-2">|</span> 사업자등록번호 : 265-19-00725</p>
+                    <p>서울특별시 중구 퇴계로34길 16, 5층 2호(필동1가)</p>
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors">이용약관</a>
+                    <a href="#" class="text-white hover:text-blue-400 font-medium transition-colors">개인정보처리방침</a>
+                </div>
+                <div class="text-gray-500">
+                    <p>Copyright ⓒ DirectCarPlus. All rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+
+    </script>
+
+</body>
+</html>

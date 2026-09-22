@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# 차세대 AI 검색 크롤러 (GEO 최적화)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yeti
+Allow: /
+
+Sitemap: https://direct-car.co.kr/sitemap.xml
