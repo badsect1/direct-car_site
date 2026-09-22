@@ -38,14 +38,18 @@ jobs:
           git pull --rebase origin main
           git push origin main
 
-      - name: 🚀 Hostinger SFTP 서버로 자동 배포
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: 🐍 Python 환경 설정
+        uses: actions/setup-python@v5
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: 65002
-          protocol: sftp
-          server-dir: domains/direct-car.co.kr/public_html/
-          dangerous-clean-slate: false
-          timeout: 180000
+          python-version: '3.11'
+
+      - name: 🚀 Hostinger SFTP 서버로 자동 배포
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_PORT: '65002'
+          FTP_REMOTE_DIR: 'domains/direct-car.co.kr/public_html'
+        run: |
+          pip install paramiko
+          python scripts/upload_to_hostinger.py
