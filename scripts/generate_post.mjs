@@ -111,10 +111,10 @@ ${existingTitles || '없음 (첫 번째 칼럼)'}
 // 5. 지원 모델 검색 함수
 async function getAvailableModel() {
   const priorityOrder = [
+    'gemini-3.5-flash-lite',
     'gemini-3.8-flash',
     'gemini-flash-latest',
     'gemini-3.5-flash',
-    'gemini-3.5-flash-lite',
     'gemini-3.1-flash-lite',
     'gemini-flash-lite-latest',
     'gemini-3.7-flash',
@@ -142,7 +142,7 @@ async function getAvailableModel() {
   } catch (e) {
     console.warn('⚠️ 모델 목록 조회 예외, 기본 모델군 시도:', e.message);
   }
-  return { bestModel: 'gemini-3.8-flash', availableModels: priorityOrder };
+  return { bestModel: 'gemini-3.5-flash-lite', availableModels: priorityOrder };
 }
 
 function safeJsonParse(text) {
@@ -171,10 +171,10 @@ async function generateArticle() {
 
   const defaultPriority = [
     bestModel,
+    'gemini-3.5-flash-lite',
     'gemini-3.8-flash',
     'gemini-flash-latest',
     'gemini-3.5-flash',
-    'gemini-3.5-flash-lite',
     'gemini-3.1-flash-lite',
     'gemini-flash-lite-latest',
     'gemini-3.7-flash',
