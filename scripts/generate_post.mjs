@@ -29,7 +29,9 @@ loadEnv(path.join(rootDir, '..', 'car-direct.kr', '.env'));
 
 const apiKey = process.env.GEMINI_API_KEY;
 if (!apiKey) {
-  console.error('❌ 오류: GEMINI_API_KEY 환경변수가 설정되지 않았습니다. .env 파일에 키를 입력해주세요.');
+  console.error('❌ 오류: GEMINI_API_KEY 환경변수가 설정되지 않았습니다.');
+  console.error('💡 [로컬 실행] .env 파일에 GEMINI_API_KEY=... 키가 올바르게 입력되어 있는지 확인해주세요.');
+  console.error('💡 [GitHub Actions] GitHub 저장소의 Settings -> Secrets and variables -> Actions 에 GEMINI_API_KEY 시크릿이 등록되어 있는지 확인해주세요.');
   process.exit(1);
 }
 
@@ -108,26 +110,39 @@ ${existingTitles || '없음 (첫 번째 칼럼)'}
 
 // 5. 지원 모델 검색 함수
 async function getAvailableModel() {
+  const priorityOrder = [
+    'gemini-3.8-flash',
+    'gemini-flash-latest',
+    'gemini-3.5-flash',
+    'gemini-3.5-flash-lite',
+    'gemini-3.1-flash-lite',
+    'gemini-flash-lite-latest',
+    'gemini-3.7-flash',
+    'gemini-3.1-pro-preview',
+    'gemini-pro-latest'
+  ];
+
   try {
     const listUrl = `https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`;
-    const listRes = await fetch(listUrl);
+    const listRes = await fetch(listUrl, { signal: AbortSignal.timeout(10000) });
     if (listRes.ok) {
       const data = await listRes.json();
       const models = (data.models || [])
         .filter(m => m.supportedGenerationMethods && m.supportedGenerationMethods.includes('generateContent'))
-        .map(m => m.name.replace('models/', ''));
+        .map(m => m.name.replace('models/', ''))
+        // 2.x 및 구버전(404 에러 발생 모델)과 비텍스트 모델 제외
+        .filter(name => !/^gemini-[12]\./.test(name) && !/-(tts|image|transcribe|computer-use|robotics)/i.test(name));
       
-      console.log('🤖 지원 모델 목록 확인:', models.slice(0, 5).join(', '));
-      const priorityOrder = ['gemini-3.5-flash-lite', 'gemini-2.5-flash', 'gemini-2.5-pro'];
+      console.log('🤖 지원 유효 Gemini 모델 목록:', models.slice(0, 8).join(', '));
       for (const p of priorityOrder) {
-        if (models.includes(p)) return p;
+        if (models.includes(p)) return { bestModel: p, availableModels: models };
       }
-      if (models.length > 0) return models[0];
+      if (models.length > 0) return { bestModel: models[0], availableModels: models };
     }
   } catch (e) {
     console.warn('⚠️ 모델 목록 조회 예외, 기본 모델군 시도:', e.message);
   }
-  return 'gemini-3.5-flash-lite';
+  return { bestModel: 'gemini-3.8-flash', availableModels: priorityOrder };
 }
 
 function safeJsonParse(text) {
@@ -151,74 +166,113 @@ function safeJsonParse(text) {
 // 6. Gemini 호출 및 포스트 생성
 async function generateArticle() {
   console.log('🔍 Gemini 최적 모델 탐색 중...');
-  const bestModel = await getAvailableModel();
-  console.log(`✨ 선택된 AI 모델: ${bestModel}`);
+  const { bestModel, availableModels } = await getAvailableModel();
+  console.log(`✨ 선택된 최우선 AI 모델: ${bestModel}`);
 
-  const candidateModels = [bestModel, 'gemini-2.5-flash', 'gemini-3.5-flash-lite', 'gemini-2.5-pro'];
-  const uniqueModels = [...new Set(candidateModels)];
+  const defaultPriority = [
+    bestModel,
+    'gemini-3.8-flash',
+    'gemini-flash-latest',
+    'gemini-3.5-flash',
+    'gemini-3.5-flash-lite',
+    'gemini-3.1-flash-lite',
+    'gemini-flash-lite-latest',
+    'gemini-3.7-flash',
+    'gemini-3.1-pro-preview',
+    'gemini-pro-latest'
+  ];
+
+  const uniqueModels = [...new Set([
+    ...defaultPriority.filter(m => availableModels.includes(m)),
+    ...availableModels
+  ])].filter(name => !/^gemini-[12]\./.test(name) && !/-(tts|image|transcribe|computer-use|robotics)/i.test(name));
+
+  console.log(`📋 호출 후보 모델 순서: ${uniqueModels.slice(0, 6).join(' -> ')}`);
 
   let rawText = null;
   let lastError = null;
 
   for (const model of uniqueModels) {
-    try {
-      console.log(`📡 [${model}] 자동차보험 전문 칼럼 생성 요청 전송...`);
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: {
-            temperature: 0.7,
-            responseMimeType: "application/json",
-            responseSchema: {
-              type: "OBJECT",
-              properties: {
-                id: { type: "STRING", description: "영문 소문자와 하이픈으로 구성된 고유 slug" },
-                title: { type: "STRING", description: "SEO 및 클릭률에 최적화된 기사 제목" },
-                summary: { type: "STRING", description: "2~3문장의 핵심 요약 (AI Direct Answer용)" },
-                keywords: { type: "STRING", description: "콤마로 구분된 핵심 키워드 5~7개" },
-                category: { type: "STRING", description: "discount, coverage, age-vehicle, renewal, compare 중 하나" },
-                categoryName: { type: "STRING", description: "카테고리 한글명" },
-                vehicle: { type: "STRING", description: "관련 차종 또는 '전차종'" },
-                ageGroup: { type: "STRING", description: "관련 연령대 또는 '전연령'" },
-                contentHtml: { type: "STRING", description: "h2, h3, 표, 요약박스, 팁/주의박스, 배너가 포함된 본문 HTML" },
-                faqs: {
-                  type: "ARRAY",
-                  items: {
-                    type: "OBJECT",
-                    properties: {
-                      question: { type: "STRING", description: "자주 묻는 질문" },
-                      answer: { type: "STRING", description: "명확한 팩트 답변" }
-                    },
-                    required: ["question", "answer"]
+    // 503(과부하)/429(속도제한) 발생 시 최대 2회 재시도 (백오프)
+    const maxRetries = 2;
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+      try {
+        console.log(`📡 [${model}] 칼럼 생성 요청 전송... (시도 ${attempt}/${maxRetries})`);
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          signal: AbortSignal.timeout(60000), // 60초 타임아웃
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: {
+              temperature: 0.7,
+              responseMimeType: "application/json",
+              responseSchema: {
+                type: "OBJECT",
+                properties: {
+                  id: { type: "STRING", description: "영문 소문자와 하이픈으로 구성된 고유 slug" },
+                  title: { type: "STRING", description: "SEO 및 클릭률에 최적화된 기사 제목" },
+                  summary: { type: "STRING", description: "2~3문장의 핵심 요약 (AI Direct Answer용)" },
+                  keywords: { type: "STRING", description: "콤마로 구분된 핵심 키워드 5~7개" },
+                  category: { type: "STRING", description: "discount, coverage, age-vehicle, renewal, compare 중 하나" },
+                  categoryName: { type: "STRING", description: "카테고리 한글명" },
+                  vehicle: { type: "STRING", description: "관련 차종 또는 '전차종'" },
+                  ageGroup: { type: "STRING", description: "관련 연령대 또는 '전연령'" },
+                  contentHtml: { type: "STRING", description: "h2, h3, 표, 요약박스, 팁/주의박스, 배너가 포함된 본문 HTML" },
+                  faqs: {
+                    type: "ARRAY",
+                    items: {
+                      type: "OBJECT",
+                      properties: {
+                        question: { type: "STRING", description: "자주 묻는 질문" },
+                        answer: { type: "STRING", description: "명확한 팩트 답변" }
+                      },
+                      required: ["question", "answer"]
+                    }
                   }
-                }
-              },
-              required: ["id", "title", "summary", "keywords", "category", "categoryName", "vehicle", "ageGroup", "contentHtml", "faqs"]
+                },
+                required: ["id", "title", "summary", "keywords", "category", "categoryName", "vehicle", "ageGroup", "contentHtml", "faqs"]
+              }
             }
+          })
+        });
+
+        if (!response.ok) {
+          const errBody = await response.text();
+          console.warn(`⚠️ [${model}] 응답 에러 (${response.status}): ${errBody.slice(0, 150)}...`);
+          lastError = new Error(`Status ${response.status}: ${errBody}`);
+
+          // 503(과부하) 또는 429(속도제한)인 경우 잠시 대기 후 재시도
+          if ((response.status === 503 || response.status === 429) && attempt < maxRetries) {
+            const waitSec = attempt * 3;
+            console.log(`⏳ [${model}] 일시적 과부하/속도제한 감지. ${waitSec}초 대기 후 재시도합니다...`);
+            await new Promise(r => setTimeout(r, waitSec * 1000));
+            continue;
           }
-        })
-      });
+          // 404 등 기타 에러는 재시도 없이 다음 모델로 이동
+          break;
+        }
 
-      if (!response.ok) {
-        const errBody = await response.text();
-        console.warn(`⚠️ [${model}] 응답 에러 (${response.status}): ${errBody.slice(0, 150)}...`);
-        lastError = new Error(`Status ${response.status}: ${errBody}`);
-        continue;
+        const data = await response.json();
+        rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (rawText) {
+          console.log(`✅ [${model}] 칼럼 콘텐츠 생성 성공!`);
+          break;
+        }
+      } catch (err) {
+        console.warn(`⚠️ [${model}] 호출 실패:`, err.message);
+        lastError = err;
+        if (err.name === 'TimeoutError' || err.message?.includes('timeout')) {
+          break;
+        }
+        if (attempt < maxRetries) {
+          await new Promise(r => setTimeout(r, 2000));
+        }
       }
-
-      const data = await response.json();
-      rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-      if (rawText) {
-        console.log(`✅ [${model}] 칼럼 콘텐츠 생성 성공!`);
-        break;
-      }
-    } catch (err) {
-      console.warn(`⚠️ [${model}] 호출 실패:`, err.message);
-      lastError = err;
     }
+
+    if (rawText) break;
   }
 
   if (!rawText) {
