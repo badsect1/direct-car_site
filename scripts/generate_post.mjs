@@ -85,7 +85,7 @@ Google 검색, 네이버 서치어드바이저, 그리고 Perplexity, ChatGPT Se
 - 세부 주제: ${randomSubtopic}
 - 타겟 차종: ${randomVehicle}
 - 타겟 운전자 연령층: ${randomAgeGroup}
-- 주요 비교 손보사: ${randomInsurer} (현대해상, DB손보, KB손보, 한화손보, AXA손보, 흥국화재, 하나손보 등 7개 손해보험사)
+- 주요 비교 손보사: ${randomInsurer} (현대해상, DB손보, KB손보, 한화손보, AXA손보, 흥국화재 등 6개 손해보험사)
 - 참고 템플릿: ${randomTemplate.titleTemplate} (포커스: ${randomTemplate.focus})
 - 비교견적 랜딩 URL: ${siteConfig.ctaUrl}
 
@@ -102,7 +102,7 @@ ${existingTitles || '없음 (첫 번째 칼럼)'}
    - <div class="geo-table-wrapper"><table>...</table></div> 형태로 옵션별 또는 보험사별 비교표(예: 대물 2억 vs 5억 vs 10억 보험료 차이, 마일리지 구간별 환급률, 주행거리별 절약액 등) 필수 1개 이상 포함
    - <div class="notice-box tip"><div class="notice-title">💡 전문가 실전 절약 팁</div><p>...</p></div> 또는 <div class="notice-box warning"><div class="notice-title">⚠️ 가입 전 주의사항</div><p>...</p></div> 강조 블록 1개 이상 포함
    - 본문 중간에 자연스럽게 1분 최저가 비교견적 CTA 배너 배치:
-     <div class="intext-cta-banner"><h4>내 차 다이렉트 자동차보험료, 1분 만에 최저가 비교해보세요</h4><p>국내 주요 7대 손해보험사(한화, 현대해상, DB, KB, AXA, 흥국, 하나 등)의 특약 할인율을 한 번에 계산해 드립니다.</p><a href="${siteConfig.ctaUrl}" target="_blank" rel="noopener noreferrer" class="btn-cta-large">⚡ 1분 최저가 비교견적 조회하기</a></div>
+     <div class="intext-cta-banner"><h4>내 차 다이렉트 자동차보험료, 1분 만에 최저가 비교해보세요</h4><p>국내 주요 6대 손해보험사(한화, 현대해상, DB, KB, AXA, 흥국 등)의 특약 할인율을 한 번에 계산해 드립니다.</p><a href="${siteConfig.ctaUrl}" target="_blank" rel="noopener noreferrer" class="btn-cta-large">⚡ 1분 최저가 비교견적 조회하기</a></div>
    - 정확한 보험 법률/규정(자동차손해배상보장법, 도로교통법, 손해보험협회 표준약관 등) 인용
 5. **자주 묻는 질문(faqs)**:
    - 실제 운전자가 네이버나 구글, 챗GPT에 검색하는 구어체 질문 3~4개와 각 2~3문장의 명쾌한 팩트 답변
@@ -478,7 +478,7 @@ async function generateArticle() {
       <!-- 본문 하단 전환 CTA 배너 -->
       <div class="cta-banner-box">
         <h3>내 차 다이렉트 보험료, 1분 만에 최저가를 찾아보세요</h3>
-        <p>현대해상, DB손해보험, KB손해보험, 한화손해보험, AXA 등 주요 7대 손해보험사 특약 할인을 실시간 비교해 드립니다.</p>
+        <p>현대해상, DB손해보험, KB손해보험, 한화손해보험, AXA 등 주요 6대 손해보험사 특약 할인을 실시간 비교해 드립니다.</p>
         <div class="cta-buttons">
           <a href="${siteConfig.ctaUrl}" target="_blank" rel="noopener noreferrer" class="btn-cta-quote">
             <span>⚡ 내 차 다이렉트 최저가 비교견적 확인</span>
@@ -491,12 +491,12 @@ async function generateArticle() {
 
       <!-- 손해보험 광고 가이드라인 준수 고지 -->
       <div class="compliance-box">
-        <p>※ 해당 광고물은 한화손보, 흥국화재, 현대해상, KB손보, DB손보, AXA손보, 하나손보의 공동 광고물입니다.</p>
+        <p>※ 해당 광고물은 한화손보, 흥국화재, 현대해상, KB손보, DB손보, AXA손보의 공동 광고물입니다.</p>
         <p>※ 해당 보험사는 관련 상품에 대해 충분히 설명할 의무가 있으며, 가입자는 가입에 앞서 이에 대한 충분한 설명을 받으시기 바랍니다.</p>
         <p>※ 보험계약 체결 전 반드시 상품설명서 및 약관을 확인하시기 바랍니다.</p>
         <p>※ 금융소비자는 해당 상품 또는 서비스에 대하여 설명을 받을 권리가 있습니다.</p>
         <p>※ 이 보험계약은 예금자보호법에 따라 해약환급금(또는 만기 시 보험금)에 기타지급금을 합한 금액이 1인당 “1억원까지”(본 보험회사의 여타 보호 상품과 합산) 보호됩니다.</p>
-        <p>하나손해보험 준법감시인 확인필 202604-071 / 한화손해보험 확인필-제2026-자동차TM지원-기타(광고)02030C-전사 / 현대해상 준법감시인 심의필 제20261241호 / AXA손해보험 검-260414-마케팅팀-166 / DB손해보험 준법감시인 확인필_제2026-12467호 / KB손해보험 준법감시인 심의필 제2026-1021호 / 흥국화재보험 준법감시인 확인필T-260420-04-002</p>
+        <p>한화손해보험 확인필-제2026-자동차TM지원-기타(광고)02030C-전사 / 현대해상 준법감시인 심의필 제20261241호 / AXA손해보험 검-260414-마케팅팀-166 / DB손해보험 준법감시인 확인필_제2026-12467호 / KB손해보험 준법감시인 심의필 제2026-1021호 / 흥국화재보험 준법감시인 확인필T-260420-04-002</p>
       </div>
     </section>
   </article>
@@ -506,7 +506,7 @@ async function generateArticle() {
     <div class="footer-container">
       <div class="footer-top">
         <div class="footer-brand">다이렉트자동차보험파트너</div>
-        <div class="footer-insurers">제휴사: 한화손보 · 흥국화재 · 현대해상 · KB손보 · DB손보 · AXA손보 · 하나손보</div>
+        <div class="footer-insurers">제휴사: 한화손보 · 흥국화재 · 현대해상 · KB손보 · DB손보 · AXA손보</div>
       </div>
       <div class="footer-legal-notices">
         <p>본 칼럼은 금융소비자의 합리적인 자동차보험 선택과 권익 보호를 위해 객관적인 공시자료 및 약관을 바탕으로 작성되었습니다.</p>
